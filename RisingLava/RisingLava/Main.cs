@@ -18,7 +18,7 @@ namespace RisingLava
         internal const string
             GUID = "crafterbot.risinglava",
             NAME = "Rising Lava",
-            VERSION = "0.0.2";
+            VERSION = "1.0.0";
         internal static ManualLogSource logSource;
         internal static OffroadPackets offroadPackets;
 
