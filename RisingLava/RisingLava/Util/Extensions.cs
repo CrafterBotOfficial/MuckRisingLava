@@ -7,13 +7,7 @@ namespace RisingLava.Util
         internal static void Log(this object obj, LogLevel logLevel = LogLevel.Info)
         {
 #if DEBUG
-            switch (logLevel)
-            {
-                case LogLevel.Info: Main.logSource.LogInfo(obj); break;
-                case LogLevel.Warning: Main.logSource.LogWarning(obj); break;
-                case LogLevel.Error: Main.logSource.LogError(obj); break;
-                case LogLevel.Message: Main.logSource.LogMessage(obj); break;
-            }
+            Main.logSource.Log(logLevel, obj);
 #endif
         }
 

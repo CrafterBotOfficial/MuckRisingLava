@@ -18,29 +18,25 @@ namespace RisingLava.Patches
                 GameType Type = GameType.NotCustom;
                 if ((int)GameManager.gameSettings.gameMode == 3)
                     Type = GameType.Easy;
-                else if ((int)GameManager.gameSettings.gameMode == 4)
-                {
-                    Type = GameType.Hard;
-                    "The lava is rising on HARD MODE".ShowChatMessage();
-                }
 
                 if (LocalClient.serverOwner && Type != GameType.NotCustom)
                 {
                     int MinutesUntilStart = Random.Range(1, 5);
 
-                    if (Type == GameType.Hard)
-                        new GameObject().AddComponent<LavaController>();
-                    else
-                    {
-                        OffroadPacketWriter offroadPacketWriter = Main.offroadPackets.WriteToAll(nameof(NetworkHandlers.RecieveMessage), Steamworks.P2PSend.Reliable);
-                        offroadPacketWriter.Write($"The lava will start rising in [{MinutesUntilStart}] minutes!");
-                        offroadPacketWriter.Send();
+                    OffroadPacketWriter offroadPacketWriter = Main.offroadPackets.WriteToAll(nameof(NetworkHandlers.RecieveMessage), Steamworks.P2PSend.Reliable);
+                    offroadPacketWriter.Write($"The lava will start rising in [{MinutesUntilStart}] minutes!");
+                    offroadPacketWriter.Send();
 
-                        await Task.Delay(MinutesUntilStart * 60 * 1000);
-                        new GameObject().AddComponent<LavaController>();
+                    for (int minute = MinutesUntilStart; minute > 0; minute--)
+                    {
+                        await Task.Delay(60 * 1000);
+                        OffroadPacketWriter offroadPacketWriter1 = Main.offroadPackets.WriteToAll(nameof(NetworkHandlers.RecieveMessage), Steamworks.P2PSend.Reliable);
+                        offroadPacketWriter1.Write($"The lava will start rising in [{minute}] minutes!");
+                        offroadPacketWriter1.Send();
                     }
-                    "Set custom speed for gamemode".Log();
+                    new GameObject().AddComponent<LavaController>();
                 }
+                "Set custom speed for gamemode".Log();
             }
             catch
             {
@@ -51,7 +47,7 @@ namespace RisingLava.Patches
         {
             NotCustom,
             Easy,
-            Hard
+            //Hard
         }
     }
 }

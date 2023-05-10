@@ -14,7 +14,7 @@ namespace RisingLava.Patches
             Transform Parent = GameObject.Find("UI/Lobby/LobbySettings/SettingsPanel/Setting_Gamemdoe/").transform;
             for (int i = 0; i < Parent.childCount; i++)
                 GameObject.Destroy(Parent.GetChild(i).gameObject);
-            __instance.gamemodeSetting.AddSettings(0, Enum.GetNames(typeof(GameSettings.GameMode)).AddRangeToArray(new string[] { "Lava", "Lava Hard" }));
+            __instance.gamemodeSetting.AddSettings(0, Enum.GetNames(typeof(GameSettings.GameMode)).AddRangeToArray(new string[] { "Lava" }));
         }
     }
 }
