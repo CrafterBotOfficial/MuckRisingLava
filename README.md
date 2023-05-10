@@ -3,7 +3,7 @@
 <a href="https://github.com/CrafterBotOfficial/MuckMobSpawner/blob/main/LICENSE">
   <img src="https://img.shields.io/badge/license-MIT-green">
 </a>
-<img src="https://img.shields.io/youtube/channel/subscribers/HcqgkIWAnVjlRthkgyTKWQ?style=social">
+<img src="https://img.shields.io/youtube/channel/subscribers/UCHcqgkIWAnVjlRthkgyTKWQ?style=social">
 </div>
 
 ## Installation
