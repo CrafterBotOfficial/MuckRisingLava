@@ -14,9 +14,10 @@ namespace RisingLava
             "Got packet from Master Client".Log();
             "Starting game".Log(BepInEx.Logging.LogLevel.Message);
             "Starting game...".ShowChatMessage();
-            $"Lava Speed:[Default] | Estimated Duration:[Default]".ShowChatMessage();
+            $"Lava Speed:[{reader.ReadSingle()}]".ShowChatMessage();
 
-            new GameObject().AddComponent<LavaController>().IsEnabled = true;
+            if (!LocalClient.serverOwner)
+                new GameObject().AddComponent<LavaController>();
         }
         [OffroadPacket]
         public static void UpdateLavaLocation(BinaryReader reader)
