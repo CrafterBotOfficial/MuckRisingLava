@@ -14,7 +14,10 @@ When hosting a game change the gamemode to Lava. Then ensure all clients have th
 You can also start the game by using the commands.
 | Command | Description | Master Only |
 |----------|:-------------:|------:|
-| "" |  Starts the lava on all clients. This works in all gamemodes. | true |
+| "/startlava" |  Starts the lava on all clients. This works in all gamemodes. | true |
+| "/resetlava" |  Restarts the lava on all clients. | true |
+| "/togglelava" |  Pauses/Unpauses the lava for all clients. | true |
+| "/setspeed" |  Sets the speed of the lava, by editing the config file. | false |
 ## Legal & Credits
 * Inspired by [ChillGunner](https://github.com/ChillGunner)s [Rising Lava](https://github.com/ChillGunner/RisingLava) mod
 * Lava material by Rob luo. Download on the Unity Asset Store
