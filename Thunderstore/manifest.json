@@ -1,0 +1,10 @@
+{
+    "name": "Rising_Lava",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/CrafterBotOfficial/MuckRisingLava",
+    "description": "(NETWORKED)",
+    "dependencies": [
+        "BepInEx-BepInExPack_Muck-5.4.1101",
+        "Terrain-OffroadPackets-2.0.0"
+    ]
+}
