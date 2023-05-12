@@ -254,15 +254,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CMDHandler.cs" />
     <Compile Include="LavaController.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="NetworkHandlers.cs" />
     <Compile Include="Patches\ChatboxPatch.cs" />
     <Compile Include="Patches\LobbySettingsPatch.cs" />
     <Compile Include="Patches\PlayerMovementPatch.cs" />
-    <Compile Include="Patches\UiSettingsPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\CommandHandling.cs" />
     <Compile Include="Util\AssetLoader.cs" />
     <Compile Include="Util\Extensions.cs" />
   </ItemGroup>

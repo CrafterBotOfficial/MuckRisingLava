@@ -9,7 +9,6 @@ using HarmonyLib;
 using RisingLava.Util;
 using System.Reflection;
 using Terrain.Packets;
-using UnityEngine;
 
 namespace RisingLava
 {
@@ -19,7 +18,7 @@ namespace RisingLava
         internal const string
             GUID = "crafterbot.risinglava",
             NAME = "Rising Lava",
-            VERSION = "1.0.0";
+            VERSION = "1.0.1";
         internal static ManualLogSource logSource;
         internal static OffroadPackets offroadPackets;
 
@@ -35,6 +34,21 @@ namespace RisingLava
 
             offroadPackets = OffroadPackets.Create<NetworkHandlers>();
             new Harmony(GUID).PatchAll(Assembly.GetExecutingAssembly());
+        }
+
+        internal static void SendGlobalMessage(string Message, bool IsRed = false)
+        {
+            if (LocalClient.serverOwner)
+            {
+                OffroadPacketWriter offroadPacketWriter = offroadPackets.WriteToAll(nameof(NetworkHandlers.OnGlobalMessageRecieved), Steamworks.P2PSend.Reliable);
+                offroadPacketWriter.Write(Message);
+                offroadPacketWriter.Write(IsRed);
+                offroadPacketWriter.Send(); // This will also dispose of the stream:)
+            }
+            else
+            {
+                "I do not have the power to preform this action.".Log(LogLevel.Warning);
+            }
         }
     }
 }
